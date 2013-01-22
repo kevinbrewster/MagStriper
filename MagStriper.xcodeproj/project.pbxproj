@@ -1,0 +1,304 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6761EA4C16AE36DC0026BCFB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6761EA4B16AE36DC0026BCFB /* Cocoa.framework */; };
+		6761EA5616AE36DC0026BCFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6761EA5416AE36DC0026BCFB /* InfoPlist.strings */; };
+		6761EA5816AE36DC0026BCFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761EA5716AE36DC0026BCFB /* main.m */; };
+		6761EA5C16AE36DD0026BCFB /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6761EA5A16AE36DD0026BCFB /* Credits.rtf */; };
+		6761EA5F16AE36DD0026BCFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761EA5E16AE36DD0026BCFB /* AppDelegate.m */; };
+		6761EA6216AE36DD0026BCFB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6761EA6016AE36DD0026BCFB /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6761EA4716AE36DC0026BCFB /* MagStriper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagStriper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6761EA4B16AE36DC0026BCFB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		6761EA4E16AE36DC0026BCFB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		6761EA4F16AE36DC0026BCFB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		6761EA5016AE36DC0026BCFB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6761EA5316AE36DC0026BCFB /* MagStriper-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MagStriper-Info.plist"; sourceTree = "<group>"; };
+		6761EA5516AE36DC0026BCFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6761EA5716AE36DC0026BCFB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6761EA5916AE36DC0026BCFB /* MagStriper-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MagStriper-Prefix.pch"; sourceTree = "<group>"; };
+		6761EA5B16AE36DD0026BCFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		6761EA5D16AE36DD0026BCFB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6761EA5E16AE36DD0026BCFB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6761EA6116AE36DD0026BCFB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6761EA4416AE36DC0026BCFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6761EA4C16AE36DC0026BCFB /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6761EA3C16AE36DC0026BCFB = {
+			isa = PBXGroup;
+			children = (
+				6761EA5116AE36DC0026BCFB /* MagStriper */,
+				6761EA4A16AE36DC0026BCFB /* Frameworks */,
+				6761EA4816AE36DC0026BCFB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6761EA4816AE36DC0026BCFB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6761EA4716AE36DC0026BCFB /* MagStriper.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6761EA4A16AE36DC0026BCFB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6761EA4B16AE36DC0026BCFB /* Cocoa.framework */,
+				6761EA4D16AE36DC0026BCFB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6761EA4D16AE36DC0026BCFB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6761EA4E16AE36DC0026BCFB /* AppKit.framework */,
+				6761EA4F16AE36DC0026BCFB /* CoreData.framework */,
+				6761EA5016AE36DC0026BCFB /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		6761EA5116AE36DC0026BCFB /* MagStriper */ = {
+			isa = PBXGroup;
+			children = (
+				6761EA5D16AE36DD0026BCFB /* AppDelegate.h */,
+				6761EA5E16AE36DD0026BCFB /* AppDelegate.m */,
+				6761EA6016AE36DD0026BCFB /* MainMenu.xib */,
+				6761EA5216AE36DC0026BCFB /* Supporting Files */,
+			);
+			path = MagStriper;
+			sourceTree = "<group>";
+		};
+		6761EA5216AE36DC0026BCFB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6761EA5316AE36DC0026BCFB /* MagStriper-Info.plist */,
+				6761EA5416AE36DC0026BCFB /* InfoPlist.strings */,
+				6761EA5716AE36DC0026BCFB /* main.m */,
+				6761EA5916AE36DC0026BCFB /* MagStriper-Prefix.pch */,
+				6761EA5A16AE36DD0026BCFB /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6761EA4616AE36DC0026BCFB /* MagStriper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6761EA6516AE36DD0026BCFB /* Build configuration list for PBXNativeTarget "MagStriper" */;
+			buildPhases = (
+				6761EA4316AE36DC0026BCFB /* Sources */,
+				6761EA4416AE36DC0026BCFB /* Frameworks */,
+				6761EA4516AE36DC0026BCFB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MagStriper;
+			productName = MagStriper;
+			productReference = 6761EA4716AE36DC0026BCFB /* MagStriper.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6761EA3E16AE36DC0026BCFB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Kevin Brewster";
+			};
+			buildConfigurationList = 6761EA4116AE36DC0026BCFB /* Build configuration list for PBXProject "MagStriper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6761EA3C16AE36DC0026BCFB;
+			productRefGroup = 6761EA4816AE36DC0026BCFB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6761EA4616AE36DC0026BCFB /* MagStriper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6761EA4516AE36DC0026BCFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6761EA5616AE36DC0026BCFB /* InfoPlist.strings in Resources */,
+				6761EA5C16AE36DD0026BCFB /* Credits.rtf in Resources */,
+				6761EA6216AE36DD0026BCFB /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6761EA4316AE36DC0026BCFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6761EA5816AE36DC0026BCFB /* main.m in Sources */,
+				6761EA5F16AE36DD0026BCFB /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6761EA5416AE36DC0026BCFB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6761EA5516AE36DC0026BCFB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6761EA5A16AE36DD0026BCFB /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6761EA5B16AE36DD0026BCFB /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		6761EA6016AE36DD0026BCFB /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6761EA6116AE36DD0026BCFB /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6761EA6316AE36DD0026BCFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		6761EA6416AE36DD0026BCFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		6761EA6616AE36DD0026BCFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MagStriper/MagStriper-Prefix.pch";
+				INFOPLIST_FILE = "MagStriper/MagStriper-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		6761EA6716AE36DD0026BCFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MagStriper/MagStriper-Prefix.pch";
+				INFOPLIST_FILE = "MagStriper/MagStriper-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6761EA4116AE36DC0026BCFB /* Build configuration list for PBXProject "MagStriper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6761EA6316AE36DD0026BCFB /* Debug */,
+				6761EA6416AE36DD0026BCFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6761EA6516AE36DD0026BCFB /* Build configuration list for PBXNativeTarget "MagStriper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6761EA6616AE36DD0026BCFB /* Debug */,
+				6761EA6716AE36DD0026BCFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6761EA3E16AE36DC0026BCFB /* Project object */;
+}
