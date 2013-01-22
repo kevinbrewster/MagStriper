@@ -8,11 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		6761EA4C16AE36DC0026BCFB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6761EA4B16AE36DC0026BCFB /* Cocoa.framework */; };
-		6761EA5616AE36DC0026BCFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6761EA5416AE36DC0026BCFB /* InfoPlist.strings */; };
-		6761EA5816AE36DC0026BCFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761EA5716AE36DC0026BCFB /* main.m */; };
-		6761EA5C16AE36DD0026BCFB /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6761EA5A16AE36DD0026BCFB /* Credits.rtf */; };
-		6761EA5F16AE36DD0026BCFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761EA5E16AE36DD0026BCFB /* AppDelegate.m */; };
-		6761EA6216AE36DD0026BCFB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6761EA6016AE36DD0026BCFB /* MainMenu.xib */; };
+		6761EB0016AE37C20026BCFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761EAC616AE37C20026BCFB /* AppDelegate.m */; };
+		6761EB0116AE37C20026BCFB /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761EAC916AE37C20026BCFB /* ActionViewController.m */; };
+		6761EB0216AE37C20026BCFB /* CompareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761EACB16AE37C20026BCFB /* CompareViewController.m */; };
+		6761EB0316AE37C20026BCFB /* DuplicateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761EACD16AE37C20026BCFB /* DuplicateViewController.m */; };
+		6761EB0416AE37C20026BCFB /* EraseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761EACF16AE37C20026BCFB /* EraseViewController.m */; };
+		6761EB0516AE37C20026BCFB /* ReadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761EAD116AE37C20026BCFB /* ReadViewController.m */; };
+		6761EB0616AE37C20026BCFB /* ReadWriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761EAD316AE37C20026BCFB /* ReadWriteViewController.m */; };
+		6761EB0716AE37C20026BCFB /* SetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761EAD516AE37C20026BCFB /* SetupViewController.m */; };
+		6761EB0816AE37C20026BCFB /* WriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761EAD716AE37C20026BCFB /* WriteViewController.m */; };
+		6761EB0916AE37C20026BCFB /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761EADB16AE37C20026BCFB /* CHCSVParser.m */; };
+		6761EB0A16AE37C20026BCFB /* NSData+MagStripeEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761EADD16AE37C20026BCFB /* NSData+MagStripeEncode.m */; };
+		6761EB0B16AE37C20026BCFB /* ORSSerialPort.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761EAE016AE37C20026BCFB /* ORSSerialPort.m */; };
+		6761EB0C16AE37C20026BCFB /* ORSSerialPortManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761EAE216AE37C20026BCFB /* ORSSerialPortManager.m */; };
+		6761EB0D16AE37C20026BCFB /* ORSSerialPortOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761EAE416AE37C20026BCFB /* ORSSerialPortOperation.m */; };
+		6761EB0E16AE37C20026BCFB /* SerialOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761EAE616AE37C20026BCFB /* SerialOperation.m */; };
+		6761EB0F16AE37C20026BCFB /* MSR206Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761EAE916AE37C20026BCFB /* MSR206Device.m */; };
+		6761EB1016AE37C20026BCFB /* MSRDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761EAEB16AE37C20026BCFB /* MSRDevice.m */; };
+		6761EB1116AE37C20026BCFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761EAEE16AE37C20026BCFB /* main.m */; };
+		6761EB1216AE37C20026BCFB /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6761EAF016AE37C20026BCFB /* Credits.rtf */; };
+		6761EB1416AE37C20026BCFB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6761EAF416AE37C20026BCFB /* MainMenu.xib */; };
+		6761EB1516AE37C20026BCFB /* credit_card_green.icns in Resources */ = {isa = PBXBuildFile; fileRef = 6761EAF716AE37C20026BCFB /* credit_card_green.icns */; };
+		6761EB1716AE37C20026BCFB /* CompareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6761EAFB16AE37C20026BCFB /* CompareViewController.xib */; };
+		6761EB1816AE37C20026BCFB /* EraseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6761EAFC16AE37C20026BCFB /* EraseViewController.xib */; };
+		6761EB1916AE37C20026BCFB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6761EAFD16AE37C20026BCFB /* MainMenu.xib */; };
+		6761EB1A16AE37C20026BCFB /* ReadWriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6761EAFE16AE37C20026BCFB /* ReadWriteViewController.xib */; };
+		6761EB1B16AE37C20026BCFB /* SetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6761EAFF16AE37C20026BCFB /* SetupViewController.xib */; };
+		67D4131016AE388500EF8B05 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D4130F16AE388500EF8B05 /* IOKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,14 +43,54 @@
 		6761EA4E16AE36DC0026BCFB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		6761EA4F16AE36DC0026BCFB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		6761EA5016AE36DC0026BCFB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		6761EA5316AE36DC0026BCFB /* MagStriper-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MagStriper-Info.plist"; sourceTree = "<group>"; };
-		6761EA5516AE36DC0026BCFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6761EA5716AE36DC0026BCFB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6761EA5916AE36DC0026BCFB /* MagStriper-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MagStriper-Prefix.pch"; sourceTree = "<group>"; };
-		6761EA5B16AE36DD0026BCFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		6761EA5D16AE36DD0026BCFB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		6761EA5E16AE36DD0026BCFB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6761EA6116AE36DD0026BCFB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		6761EAC516AE37C20026BCFB /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6761EAC616AE37C20026BCFB /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6761EAC816AE37C20026BCFB /* ActionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionViewController.h; sourceTree = "<group>"; };
+		6761EAC916AE37C20026BCFB /* ActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionViewController.m; sourceTree = "<group>"; };
+		6761EACA16AE37C20026BCFB /* CompareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompareViewController.h; sourceTree = "<group>"; };
+		6761EACB16AE37C20026BCFB /* CompareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompareViewController.m; sourceTree = "<group>"; };
+		6761EACC16AE37C20026BCFB /* DuplicateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuplicateViewController.h; sourceTree = "<group>"; };
+		6761EACD16AE37C20026BCFB /* DuplicateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuplicateViewController.m; sourceTree = "<group>"; };
+		6761EACE16AE37C20026BCFB /* EraseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EraseViewController.h; sourceTree = "<group>"; };
+		6761EACF16AE37C20026BCFB /* EraseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EraseViewController.m; sourceTree = "<group>"; };
+		6761EAD016AE37C20026BCFB /* ReadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadViewController.h; sourceTree = "<group>"; };
+		6761EAD116AE37C20026BCFB /* ReadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadViewController.m; sourceTree = "<group>"; };
+		6761EAD216AE37C20026BCFB /* ReadWriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadWriteViewController.h; sourceTree = "<group>"; };
+		6761EAD316AE37C20026BCFB /* ReadWriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadWriteViewController.m; sourceTree = "<group>"; };
+		6761EAD416AE37C20026BCFB /* SetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupViewController.h; sourceTree = "<group>"; };
+		6761EAD516AE37C20026BCFB /* SetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupViewController.m; sourceTree = "<group>"; };
+		6761EAD616AE37C20026BCFB /* WriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteViewController.h; sourceTree = "<group>"; };
+		6761EAD716AE37C20026BCFB /* WriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteViewController.m; sourceTree = "<group>"; };
+		6761EADA16AE37C20026BCFB /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
+		6761EADB16AE37C20026BCFB /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVParser.m; sourceTree = "<group>"; };
+		6761EADC16AE37C20026BCFB /* NSData+MagStripeEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MagStripeEncode.h"; sourceTree = "<group>"; };
+		6761EADD16AE37C20026BCFB /* NSData+MagStripeEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MagStripeEncode.m"; sourceTree = "<group>"; };
+		6761EADF16AE37C20026BCFB /* ORSSerialPort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSSerialPort.h; sourceTree = "<group>"; };
+		6761EAE016AE37C20026BCFB /* ORSSerialPort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSSerialPort.m; sourceTree = "<group>"; };
+		6761EAE116AE37C20026BCFB /* ORSSerialPortManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSSerialPortManager.h; sourceTree = "<group>"; };
+		6761EAE216AE37C20026BCFB /* ORSSerialPortManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSSerialPortManager.m; sourceTree = "<group>"; };
+		6761EAE316AE37C20026BCFB /* ORSSerialPortOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSSerialPortOperation.h; sourceTree = "<group>"; };
+		6761EAE416AE37C20026BCFB /* ORSSerialPortOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSSerialPortOperation.m; sourceTree = "<group>"; };
+		6761EAE516AE37C20026BCFB /* SerialOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerialOperation.h; sourceTree = "<group>"; };
+		6761EAE616AE37C20026BCFB /* SerialOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerialOperation.m; sourceTree = "<group>"; };
+		6761EAE816AE37C20026BCFB /* MSR206Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSR206Device.h; sourceTree = "<group>"; };
+		6761EAE916AE37C20026BCFB /* MSR206Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSR206Device.m; sourceTree = "<group>"; };
+		6761EAEA16AE37C20026BCFB /* MSRDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRDevice.h; sourceTree = "<group>"; };
+		6761EAEB16AE37C20026BCFB /* MSRDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSRDevice.m; sourceTree = "<group>"; };
+		6761EAED16AE37C20026BCFB /* MagStriper-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MagStriper-Prefix.pch"; sourceTree = "<group>"; };
+		6761EAEE16AE37C20026BCFB /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6761EAF116AE37C20026BCFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		6761EAF316AE37C20026BCFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6761EAF516AE37C20026BCFB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		6761EAF716AE37C20026BCFB /* credit_card_green.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = credit_card_green.icns; sourceTree = "<group>"; };
+		6761EAF816AE37C20026BCFB /* MagStriper-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MagStriper-Info.plist"; sourceTree = "<group>"; };
+		6761EAF916AE37C20026BCFB /* MagStriper-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MagStriper-Prefix.pch"; sourceTree = "<group>"; };
+		6761EAFB16AE37C20026BCFB /* CompareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompareViewController.xib; sourceTree = "<group>"; };
+		6761EAFC16AE37C20026BCFB /* EraseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EraseViewController.xib; sourceTree = "<group>"; };
+		6761EAFD16AE37C20026BCFB /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		6761EAFE16AE37C20026BCFB /* ReadWriteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadWriteViewController.xib; sourceTree = "<group>"; };
+		6761EAFF16AE37C20026BCFB /* SetupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetupViewController.xib; sourceTree = "<group>"; };
+		67D4130F16AE388500EF8B05 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67D4131016AE388500EF8B05 /* IOKit.framework in Frameworks */,
 				6761EA4C16AE36DC0026BCFB /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,7 +109,10 @@
 		6761EA3C16AE36DC0026BCFB = {
 			isa = PBXGroup;
 			children = (
-				6761EA5116AE36DC0026BCFB /* MagStriper */,
+				67D4130F16AE388500EF8B05 /* IOKit.framework */,
+				6761EAC316AE37C20026BCFB /* Classes */,
+				6761EAEC16AE37C20026BCFB /* Other Sources */,
+				6761EAEF16AE37C20026BCFB /* Resources */,
 				6761EA4A16AE36DC0026BCFB /* Frameworks */,
 				6761EA4816AE36DC0026BCFB /* Products */,
 			);
@@ -79,27 +145,136 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		6761EA5116AE36DC0026BCFB /* MagStriper */ = {
+		6761EAC316AE37C20026BCFB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				6761EA5D16AE36DD0026BCFB /* AppDelegate.h */,
-				6761EA5E16AE36DD0026BCFB /* AppDelegate.m */,
-				6761EA6016AE36DD0026BCFB /* MainMenu.xib */,
-				6761EA5216AE36DC0026BCFB /* Supporting Files */,
+				6761EAC416AE37C20026BCFB /* AppDelegate */,
+				6761EAC716AE37C20026BCFB /* Controllers */,
+				6761EAD816AE37C20026BCFB /* Helper */,
+				6761EAE716AE37C20026BCFB /* Models */,
 			);
-			path = MagStriper;
+			path = Classes;
 			sourceTree = "<group>";
 		};
-		6761EA5216AE36DC0026BCFB /* Supporting Files */ = {
+		6761EAC416AE37C20026BCFB /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				6761EA5316AE36DC0026BCFB /* MagStriper-Info.plist */,
-				6761EA5416AE36DC0026BCFB /* InfoPlist.strings */,
-				6761EA5716AE36DC0026BCFB /* main.m */,
-				6761EA5916AE36DC0026BCFB /* MagStriper-Prefix.pch */,
-				6761EA5A16AE36DD0026BCFB /* Credits.rtf */,
+				6761EAC516AE37C20026BCFB /* AppDelegate.h */,
+				6761EAC616AE37C20026BCFB /* AppDelegate.m */,
 			);
-			name = "Supporting Files";
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		6761EAC716AE37C20026BCFB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6761EAC816AE37C20026BCFB /* ActionViewController.h */,
+				6761EAC916AE37C20026BCFB /* ActionViewController.m */,
+				6761EACA16AE37C20026BCFB /* CompareViewController.h */,
+				6761EACB16AE37C20026BCFB /* CompareViewController.m */,
+				6761EACC16AE37C20026BCFB /* DuplicateViewController.h */,
+				6761EACD16AE37C20026BCFB /* DuplicateViewController.m */,
+				6761EACE16AE37C20026BCFB /* EraseViewController.h */,
+				6761EACF16AE37C20026BCFB /* EraseViewController.m */,
+				6761EAD016AE37C20026BCFB /* ReadViewController.h */,
+				6761EAD116AE37C20026BCFB /* ReadViewController.m */,
+				6761EAD216AE37C20026BCFB /* ReadWriteViewController.h */,
+				6761EAD316AE37C20026BCFB /* ReadWriteViewController.m */,
+				6761EAD416AE37C20026BCFB /* SetupViewController.h */,
+				6761EAD516AE37C20026BCFB /* SetupViewController.m */,
+				6761EAD616AE37C20026BCFB /* WriteViewController.h */,
+				6761EAD716AE37C20026BCFB /* WriteViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		6761EAD816AE37C20026BCFB /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				6761EAD916AE37C20026BCFB /* CHCSVParser */,
+				6761EADC16AE37C20026BCFB /* NSData+MagStripeEncode.h */,
+				6761EADD16AE37C20026BCFB /* NSData+MagStripeEncode.m */,
+				6761EADE16AE37C20026BCFB /* ORSerialPort */,
+				6761EAE316AE37C20026BCFB /* ORSSerialPortOperation.h */,
+				6761EAE416AE37C20026BCFB /* ORSSerialPortOperation.m */,
+				6761EAE516AE37C20026BCFB /* SerialOperation.h */,
+				6761EAE616AE37C20026BCFB /* SerialOperation.m */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		6761EAD916AE37C20026BCFB /* CHCSVParser */ = {
+			isa = PBXGroup;
+			children = (
+				6761EADA16AE37C20026BCFB /* CHCSVParser.h */,
+				6761EADB16AE37C20026BCFB /* CHCSVParser.m */,
+			);
+			path = CHCSVParser;
+			sourceTree = "<group>";
+		};
+		6761EADE16AE37C20026BCFB /* ORSerialPort */ = {
+			isa = PBXGroup;
+			children = (
+				6761EADF16AE37C20026BCFB /* ORSSerialPort.h */,
+				6761EAE016AE37C20026BCFB /* ORSSerialPort.m */,
+				6761EAE116AE37C20026BCFB /* ORSSerialPortManager.h */,
+				6761EAE216AE37C20026BCFB /* ORSSerialPortManager.m */,
+			);
+			path = ORSerialPort;
+			sourceTree = "<group>";
+		};
+		6761EAE716AE37C20026BCFB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6761EAE816AE37C20026BCFB /* MSR206Device.h */,
+				6761EAE916AE37C20026BCFB /* MSR206Device.m */,
+				6761EAEA16AE37C20026BCFB /* MSRDevice.h */,
+				6761EAEB16AE37C20026BCFB /* MSRDevice.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6761EAEC16AE37C20026BCFB /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				6761EAED16AE37C20026BCFB /* MagStriper-Prefix.pch */,
+				6761EAEE16AE37C20026BCFB /* main.m */,
+			);
+			path = "Other Sources";
+			sourceTree = "<group>";
+		};
+		6761EAEF16AE37C20026BCFB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6761EAF016AE37C20026BCFB /* Credits.rtf */,
+				6761EAF216AE37C20026BCFB /* InfoPlist.strings */,
+				6761EAF416AE37C20026BCFB /* MainMenu.xib */,
+				6761EAF616AE37C20026BCFB /* Images */,
+				6761EAF816AE37C20026BCFB /* MagStriper-Info.plist */,
+				6761EAF916AE37C20026BCFB /* MagStriper-Prefix.pch */,
+				6761EAFA16AE37C20026BCFB /* NIBs */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6761EAF616AE37C20026BCFB /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				6761EAF716AE37C20026BCFB /* credit_card_green.icns */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		6761EAFA16AE37C20026BCFB /* NIBs */ = {
+			isa = PBXGroup;
+			children = (
+				6761EAFB16AE37C20026BCFB /* CompareViewController.xib */,
+				6761EAFC16AE37C20026BCFB /* EraseViewController.xib */,
+				6761EAFD16AE37C20026BCFB /* MainMenu.xib */,
+				6761EAFE16AE37C20026BCFB /* ReadWriteViewController.xib */,
+				6761EAFF16AE37C20026BCFB /* SetupViewController.xib */,
+			);
+			path = NIBs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,9 +328,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6761EA5616AE36DC0026BCFB /* InfoPlist.strings in Resources */,
-				6761EA5C16AE36DD0026BCFB /* Credits.rtf in Resources */,
-				6761EA6216AE36DD0026BCFB /* MainMenu.xib in Resources */,
+				6761EB1216AE37C20026BCFB /* Credits.rtf in Resources */,
+				6761EB1416AE37C20026BCFB /* MainMenu.xib in Resources */,
+				6761EB1516AE37C20026BCFB /* credit_card_green.icns in Resources */,
+				6761EB1716AE37C20026BCFB /* CompareViewController.xib in Resources */,
+				6761EB1816AE37C20026BCFB /* EraseViewController.xib in Resources */,
+				6761EB1916AE37C20026BCFB /* MainMenu.xib in Resources */,
+				6761EB1A16AE37C20026BCFB /* ReadWriteViewController.xib in Resources */,
+				6761EB1B16AE37C20026BCFB /* SetupViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,34 +346,50 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6761EA5816AE36DC0026BCFB /* main.m in Sources */,
-				6761EA5F16AE36DD0026BCFB /* AppDelegate.m in Sources */,
+				6761EB0016AE37C20026BCFB /* AppDelegate.m in Sources */,
+				6761EB0116AE37C20026BCFB /* ActionViewController.m in Sources */,
+				6761EB0216AE37C20026BCFB /* CompareViewController.m in Sources */,
+				6761EB0316AE37C20026BCFB /* DuplicateViewController.m in Sources */,
+				6761EB0416AE37C20026BCFB /* EraseViewController.m in Sources */,
+				6761EB0516AE37C20026BCFB /* ReadViewController.m in Sources */,
+				6761EB0616AE37C20026BCFB /* ReadWriteViewController.m in Sources */,
+				6761EB0716AE37C20026BCFB /* SetupViewController.m in Sources */,
+				6761EB0816AE37C20026BCFB /* WriteViewController.m in Sources */,
+				6761EB0916AE37C20026BCFB /* CHCSVParser.m in Sources */,
+				6761EB0A16AE37C20026BCFB /* NSData+MagStripeEncode.m in Sources */,
+				6761EB0B16AE37C20026BCFB /* ORSSerialPort.m in Sources */,
+				6761EB0C16AE37C20026BCFB /* ORSSerialPortManager.m in Sources */,
+				6761EB0D16AE37C20026BCFB /* ORSSerialPortOperation.m in Sources */,
+				6761EB0E16AE37C20026BCFB /* SerialOperation.m in Sources */,
+				6761EB0F16AE37C20026BCFB /* MSR206Device.m in Sources */,
+				6761EB1016AE37C20026BCFB /* MSRDevice.m in Sources */,
+				6761EB1116AE37C20026BCFB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		6761EA5416AE36DC0026BCFB /* InfoPlist.strings */ = {
+		6761EAF016AE37C20026BCFB /* Credits.rtf */ = {
 			isa = PBXVariantGroup;
 			children = (
-				6761EA5516AE36DC0026BCFB /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		6761EA5A16AE36DD0026BCFB /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6761EA5B16AE36DD0026BCFB /* en */,
+				6761EAF116AE37C20026BCFB /* en */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
-		6761EA6016AE36DD0026BCFB /* MainMenu.xib */ = {
+		6761EAF216AE37C20026BCFB /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				6761EA6116AE36DD0026BCFB /* en */,
+				6761EAF316AE37C20026BCFB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6761EAF416AE37C20026BCFB /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6761EAF516AE37C20026BCFB /* en */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -259,8 +455,8 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MagStriper/MagStriper-Prefix.pch";
-				INFOPLIST_FILE = "MagStriper/MagStriper-Info.plist";
+				GCC_PREFIX_HEADER = "Resources/MagStriper-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/MagStriper-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -271,8 +467,8 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MagStriper/MagStriper-Prefix.pch";
-				INFOPLIST_FILE = "MagStriper/MagStriper-Info.plist";
+				GCC_PREFIX_HEADER = "Resources/MagStriper-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/MagStriper-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -297,6 +493,7 @@
 				6761EA6716AE36DD0026BCFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
