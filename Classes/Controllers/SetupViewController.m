@@ -10,6 +10,8 @@
 #import "AppDelegate.h"
 
 @interface SetupViewController ()
+@property (weak) IBOutlet NSButton *resetDeviceButton;
+@property (weak) IBOutlet NSPopUpButton *deviceSelect;
 
 @end
 
@@ -31,5 +33,15 @@
 {
     AppDelegate *appDelegate = (AppDelegate *) [[NSApplication sharedApplication] delegate];
     [appDelegate.MSRDevice resetDevice];
+}
+- (IBAction)deviceSelected:(NSPopUpButton *)deviceSelect {
+    NSLog(@"DeviceSelected");
+    AppDelegate *appDelegate = (AppDelegate *) [[NSApplication sharedApplication] delegate];
+    
+    ORSSerialPort *port = [appDelegate.serialPortManager.availablePorts objectAtIndex:deviceSelect.indexOfSelectedItem];
+    if(appDelegate.MSRDevice){
+        appDelegate.MSRDevice.port = port;
+        [appDelegate.MSRDevice modelName];
+    }
 }
 @end

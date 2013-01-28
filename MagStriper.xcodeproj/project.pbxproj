@@ -27,7 +27,6 @@
 		6761EB1016AE37C20026BCFB /* MSRDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761EAEB16AE37C20026BCFB /* MSRDevice.m */; };
 		6761EB1116AE37C20026BCFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761EAEE16AE37C20026BCFB /* main.m */; };
 		6761EB1216AE37C20026BCFB /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6761EAF016AE37C20026BCFB /* Credits.rtf */; };
-		6761EB1416AE37C20026BCFB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6761EAF416AE37C20026BCFB /* MainMenu.xib */; };
 		6761EB1516AE37C20026BCFB /* credit_card_green.icns in Resources */ = {isa = PBXBuildFile; fileRef = 6761EAF716AE37C20026BCFB /* credit_card_green.icns */; };
 		6761EB1716AE37C20026BCFB /* CompareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6761EAFB16AE37C20026BCFB /* CompareViewController.xib */; };
 		6761EB1816AE37C20026BCFB /* EraseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6761EAFC16AE37C20026BCFB /* EraseViewController.xib */; };
@@ -81,7 +80,6 @@
 		6761EAEE16AE37C20026BCFB /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6761EAF116AE37C20026BCFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		6761EAF316AE37C20026BCFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6761EAF516AE37C20026BCFB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		6761EAF716AE37C20026BCFB /* credit_card_green.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = credit_card_green.icns; sourceTree = "<group>"; };
 		6761EAF816AE37C20026BCFB /* MagStriper-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MagStriper-Info.plist"; sourceTree = "<group>"; };
 		6761EAF916AE37C20026BCFB /* MagStriper-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MagStriper-Prefix.pch"; sourceTree = "<group>"; };
@@ -170,20 +168,20 @@
 			children = (
 				6761EAC816AE37C20026BCFB /* ActionViewController.h */,
 				6761EAC916AE37C20026BCFB /* ActionViewController.m */,
+				6761EAD216AE37C20026BCFB /* ReadWriteViewController.h */,
+				6761EAD316AE37C20026BCFB /* ReadWriteViewController.m */,
+				6761EAD016AE37C20026BCFB /* ReadViewController.h */,
+				6761EAD116AE37C20026BCFB /* ReadViewController.m */,
+				6761EAD616AE37C20026BCFB /* WriteViewController.h */,
+				6761EAD716AE37C20026BCFB /* WriteViewController.m */,
 				6761EACA16AE37C20026BCFB /* CompareViewController.h */,
 				6761EACB16AE37C20026BCFB /* CompareViewController.m */,
 				6761EACC16AE37C20026BCFB /* DuplicateViewController.h */,
 				6761EACD16AE37C20026BCFB /* DuplicateViewController.m */,
 				6761EACE16AE37C20026BCFB /* EraseViewController.h */,
 				6761EACF16AE37C20026BCFB /* EraseViewController.m */,
-				6761EAD016AE37C20026BCFB /* ReadViewController.h */,
-				6761EAD116AE37C20026BCFB /* ReadViewController.m */,
-				6761EAD216AE37C20026BCFB /* ReadWriteViewController.h */,
-				6761EAD316AE37C20026BCFB /* ReadWriteViewController.m */,
 				6761EAD416AE37C20026BCFB /* SetupViewController.h */,
 				6761EAD516AE37C20026BCFB /* SetupViewController.m */,
-				6761EAD616AE37C20026BCFB /* WriteViewController.h */,
-				6761EAD716AE37C20026BCFB /* WriteViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -248,7 +246,6 @@
 			children = (
 				6761EAF016AE37C20026BCFB /* Credits.rtf */,
 				6761EAF216AE37C20026BCFB /* InfoPlist.strings */,
-				6761EAF416AE37C20026BCFB /* MainMenu.xib */,
 				6761EAF616AE37C20026BCFB /* Images */,
 				6761EAF816AE37C20026BCFB /* MagStriper-Info.plist */,
 				6761EAF916AE37C20026BCFB /* MagStriper-Prefix.pch */,
@@ -268,10 +265,10 @@
 		6761EAFA16AE37C20026BCFB /* NIBs */ = {
 			isa = PBXGroup;
 			children = (
-				6761EAFB16AE37C20026BCFB /* CompareViewController.xib */,
-				6761EAFC16AE37C20026BCFB /* EraseViewController.xib */,
 				6761EAFD16AE37C20026BCFB /* MainMenu.xib */,
 				6761EAFE16AE37C20026BCFB /* ReadWriteViewController.xib */,
+				6761EAFB16AE37C20026BCFB /* CompareViewController.xib */,
+				6761EAFC16AE37C20026BCFB /* EraseViewController.xib */,
 				6761EAFF16AE37C20026BCFB /* SetupViewController.xib */,
 			);
 			path = NIBs;
@@ -329,7 +326,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6761EB1216AE37C20026BCFB /* Credits.rtf in Resources */,
-				6761EB1416AE37C20026BCFB /* MainMenu.xib in Resources */,
 				6761EB1516AE37C20026BCFB /* credit_card_green.icns in Resources */,
 				6761EB1716AE37C20026BCFB /* CompareViewController.xib in Resources */,
 				6761EB1816AE37C20026BCFB /* EraseViewController.xib in Resources */,
@@ -384,14 +380,6 @@
 				6761EAF316AE37C20026BCFB /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		6761EAF416AE37C20026BCFB /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6761EAF516AE37C20026BCFB /* en */,
-			);
-			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

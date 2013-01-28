@@ -18,7 +18,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.actionButton.title = @"Duplicate";
-    [self.coercivitySelect setHidden:YES];
+    //[self.coercivitySelect setHidden:YES];
     [self.textFormatSelect setHidden:YES];
     [self.track1TextField setEnabled:NO];
     [self.track2TextField setEnabled:NO];

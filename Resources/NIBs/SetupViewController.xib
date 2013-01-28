@@ -280,20 +280,48 @@
 					<int key="connectionID">93</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">resetDeviceButton</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="521133497"/>
+					</object>
+					<int key="connectionID">108</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">deviceSelect</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="925234536"/>
+					</object>
+					<int key="connectionID">109</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">deviceSelected:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="925234536"/>
+					</object>
+					<int key="connectionID">120</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">content: delegate.serialPortManager.availablePorts</string>
 						<reference key="source" ref="925234536"/>
 						<reference key="destination" ref="1004"/>
-						<object class="NSNibBindingConnector" key="connector" id="915369843">
+						<object class="NSNibBindingConnector" key="connector" id="84764218">
 							<reference key="NSSource" ref="925234536"/>
 							<reference key="NSDestination" ref="1004"/>
 							<string key="NSLabel">content: delegate.serialPortManager.availablePorts</string>
 							<string key="NSBinding">content</string>
 							<string key="NSKeyPath">delegate.serialPortManager.availablePorts</string>
+							<dictionary key="NSOptions">
+								<boolean value="YES" key="NSInsertsNullPlaceholder"/>
+								<string key="NSNullPlaceholder">No Device Connected</string>
+							</dictionary>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">81</int>
+					<int key="connectionID">123</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -306,11 +334,15 @@
 							<string key="NSLabel">contentValues: delegate.serialPortManager.availablePorts.name</string>
 							<string key="NSBinding">contentValues</string>
 							<string key="NSKeyPath">delegate.serialPortManager.availablePorts.name</string>
-							<reference key="NSPreviousConnector" ref="915369843"/>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSInsertsNullPlaceholder</string>
+								<boolean value="YES" key="NS.object.0"/>
+							</object>
+							<reference key="NSPreviousConnector" ref="84764218"/>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">82</int>
+					<int key="connectionID">124</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -343,6 +375,38 @@
 						</object>
 					</object>
 					<int key="connectionID">105</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: delegate.serialPortManager.availablePorts.@count</string>
+						<reference key="source" ref="521133497"/>
+						<reference key="destination" ref="1004"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="521133497"/>
+							<reference key="NSDestination" ref="1004"/>
+							<string key="NSLabel">enabled: delegate.serialPortManager.availablePorts.@count</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">delegate.serialPortManager.availablePorts.@count</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">119</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: delegate.serialPortManager.availablePorts.@count</string>
+						<reference key="source" ref="800105597"/>
+						<reference key="destination" ref="1004"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="800105597"/>
+							<reference key="NSDestination" ref="1004"/>
+							<string key="NSLabel">enabled: delegate.serialPortManager.availablePorts.@count</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">delegate.serialPortManager.availablePorts.@count</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">118</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -935,7 +999,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">107</int>
+			<int key="maxID">124</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -950,6 +1014,20 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">SetupViewController</string>
 					<string key="superclassName">NSViewController</string>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="deviceSelect">NSPopUpButton</string>
+						<string key="resetDeviceButton">NSButton</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="deviceSelect">
+							<string key="name">deviceSelect</string>
+							<string key="candidateClassName">NSPopUpButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="resetDeviceButton">
+							<string key="name">resetDeviceButton</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
+					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/SetupViewController.h</string>

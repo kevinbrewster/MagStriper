@@ -37,6 +37,7 @@
 @property (strong, nonatomic) MSRDevice *MSRDevice;
 @property (weak) IBOutlet NSToolbar *toolbar;
 @property (weak) IBOutlet NSPopUpButton *fileOptionsSelect;
+@property (weak) IBOutlet NSMenu *fileMenu;
 
 
 @end

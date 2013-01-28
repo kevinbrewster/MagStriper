@@ -29,34 +29,18 @@
     NSDictionary *defaults = @{@"coercivity":@1, @"dataFormat":@"ISO", @"textFormat":@"ASCII"};
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ORSSerialPortWasConnectedNotification:) name:@"ORSSerialPortWasConnectedNotification" object:nil];
-    
     self.serialPortManager = [ORSSerialPortManager sharedSerialPortManager];
     self.viewControllers = [NSMutableDictionary dictionary];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ORSSerialPortWasConnectedNotification:) name:@"ORSSerialPortWasConnected" object:nil];
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ORSSerialPortWasDisconnectedNotification:) name:@"ORSSerialPortWasDisconnected" object:nil];
+    
+    
     if (self.serialPortManager.availablePorts.count) {
-        ORSSerialPort *port = [self.serialPortManager.availablePorts lastObject];
-        self.MSRDevice = [[MSR206Device alloc] initWithPort:port];
-        
-        NSString *defaultView = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastView"];
-        if(!defaultView) defaultView = @"Read";
-        
-        [self.toolbar setSelectedItemIdentifier:defaultView];
-        [self setView:defaultView];
+        [self ORSSerialPortWasConnected:nil];
     } else{
-        [self.toolbar setSelectedItemIdentifier:@"Setup"];
-        [self setView:@"Setup"];
+        [self ORSSerialPortWasDisconnected:nil];
     }    
-}
-
-- (void) ORSSerialPortWasConnectedNotification:(NSNotification *) notification
-{
-    NSLog(@"ORSSerialPortWasConnectedNotification");
-}
-
-- (IBAction)ToolbarItemPressed:(NSToolbarItem *)sender
-{
-    [self setView:sender.itemIdentifier];
 }
 - (void)setView:(NSString*)name
 {
@@ -87,9 +71,57 @@
                              NSMakeRect( NSMinX( windowFrame ), NSMaxY( windowFrame ) - size.height, size.width, size.height )];
     [self.window setFrame:newWindowFrame display:YES animate:self.window.isVisible];
 }
+- (void) ORSSerialPortWasConnected:(NSNotification *) notification
+{
+    if(!self.MSRDevice){
+        ORSSerialPort *port = [self.serialPortManager.availablePorts lastObject];
+        self.MSRDevice = [[MSR206Device alloc] initWithPort:port];
+        
+        // Enable all access to read/write/erase 
+        for(NSToolbarItem *item in self.toolbar.items){
+            if(![item.itemIdentifier isEqualToString:@"Setup"]){
+                [item setEnabled:YES];
+                [item setAutovalidates:YES];
+            }
+        }
+        [[self.fileMenu itemWithTitle:@"File"] setEnabled:YES];
+        
+        NSString *defaultView = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastView"];
+        if(!defaultView) defaultView = @"Read";
+        
+        [self.toolbar setSelectedItemIdentifier:defaultView];
+        [self setView:defaultView];
+    }
+}
+- (void) ORSSerialPortWasDisconnected:(NSNotification *) notification
+{
+    if(!self.MSRDevice || ![self.serialPortManager.availablePorts containsObject:self.MSRDevice.port]){
+        self.MSRDevice = nil;
+        
+        // Disable all access to read/write/erase
+        for(NSToolbarItem *item in self.toolbar.items){
+            if(![item.itemIdentifier isEqualToString:@"Setup"]){
+                [item setEnabled:NO];
+                [item setAutovalidates:NO];
+            }
+        }
+        [[self.fileMenu itemWithTitle:@"File"] setEnabled:NO];
+        
+        [self.toolbar setSelectedItemIdentifier:@"Setup"];
+        [self setView:@"Setup"];
+    }
+}
 
+#pragma mark IBActions
 
-- (IBAction)batchWriteFromFile:(id)sender {
+- (IBAction)toolbarItemPressed:(NSToolbarItem *)sender
+{
+    [self setView:sender.itemIdentifier];
+}
+- (IBAction)batchWriteFromFile:(id)sender
+{
+    if(!self.MSRDevice) return;
+    
     // Create and configure the panel.
     NSOpenPanel* panel = [NSOpenPanel openPanel];
     [panel setCanChooseDirectories:NO];
@@ -113,6 +145,8 @@
 }
 - (IBAction)batchReadToFile:(id)sender
 {
+    if(!self.MSRDevice) return;
+    
     // Create and configure the panel.
     NSSavePanel* panel = [NSSavePanel savePanel];
     [panel setNameFieldStringValue:@"Mag Stripe Data"];
@@ -135,6 +169,8 @@
 
 - (IBAction)batchErase:(id)sender
 {
+    if(!self.MSRDevice) return;
+    
     [self setView:@"Erase"];
     if([self.currentViewController respondsToSelector:@selector(batchErase)]){
         [self.currentViewController performSelector:@selector(batchErase)];

@@ -43,6 +43,10 @@
         if(string.length){
             NSData *data;
             if([self.textFormat isEqualToString:@"ASCII"]){
+                if([self.dataFormat isEqualToString:@"ISO"]){
+                    NSCharacterSet *sentinelChars = [NSCharacterSet characterSetWithCharactersInString:@";?"];
+                    string = [string stringByTrimmingCharactersInSet:sentinelChars];
+                }
                 data = [NSData dataWithBytes:string.UTF8String length:string.length];
             } else{
                 data = [NSData dataFromHexString:string];
@@ -67,7 +71,7 @@
 {
     if(button && self.writeQueue.count > 1){
         NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:@"Cancel All Writes"];
+        [alert addButtonWithTitle:@"Cancel All Remaining Writes"];
         [alert addButtonWithTitle:@"Cancel Single Write"];
         [alert setMessageText:[NSString stringWithFormat:@"Cancel the remaining %ld writes?", self.writeQueue.count]];
         //[alert setInformativeText:@"Deleted records cannot be restored."];
@@ -101,38 +105,45 @@
 {
     if(self.pendingActionButton) [super cancelAction:self.pendingActionButton];
     
+    NSString *errorMessage;
+    
     self.writeQueue = [NSMutableArray array];
     self.completedWrites = 0;
     
     NSArray *csvRows = [NSArray arrayWithContentsOfCSVFile:url.path];
-    for(NSArray *row in csvRows){
-        NSMutableDictionary *trackString = [NSMutableDictionary dictionary];
-        if(track){
-            if(row.count > 0) trackString[track.stringValue] = row[0];
-        } else{
-            if(row.count > 0) trackString[@"1"] = row[0];
-            if(row.count > 1) trackString[@"2"] = row[1];
-            if(row.count > 2) trackString[@"3"] = row[2];
+    if(csvRows){
+        for(NSArray *row in csvRows){
+            NSMutableDictionary *trackString = [NSMutableDictionary dictionary];
+            if(track){
+                if(row.count > 0) trackString[track.stringValue] = row[0];
+            } else{
+                if(row.count > 0) trackString[@"1"] = row[0];
+                if(row.count > 1) trackString[@"2"] = row[1];
+                if(row.count > 2) trackString[@"3"] = row[2];
+            }
+            if(trackString.count) [self.writeQueue addObject:trackString];
         }
-        if(trackString.count) [self.writeQueue addObject:trackString];
+        if(self.writeQueue.count){
+            self.dataFormat = @"ASCII";
+            [self actionButtonPressed:self.actionButton];
+        } else{
+            errorMessage = @"No track data found in file.";
+        }
+    } else{
+        errorMessage = @"Error parsing file.";
     }
-    if(self.writeQueue.count){
-        self.dataFormat = @"ASCII";
-        [self actionButtonPressed:self.actionButton];
+
+    if(errorMessage){
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"OK"];
+        [alert setMessageText:errorMessage];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        AppDelegate *appDelegate = (AppDelegate *) [[NSApplication sharedApplication] delegate];
+        [alert beginSheetModalForWindow:appDelegate.window
+                          modalDelegate:self
+                         didEndSelector:nil
+                            contextInfo:nil];
     }
 }
 
-- (void)parser:(CHCSVParser *)parser didBeginLine:(NSUInteger)recordNumber
-{
-    NSLog(@"didBeginLine");
-}
-- (void)parser:(CHCSVParser *)parser didFailWithError:(NSError *)error
-{
-    NSLog(@"didFailWithError");
-}
-
-- (void)parserDidBeginDocument:(CHCSVParser *)parser
-{
-    NSLog(@"parserDidBeginDocument");
-}
 @end

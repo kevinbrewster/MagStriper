@@ -10,6 +10,8 @@
 #import "AppDelegate.h"
 
 @interface EraseViewController ()
+@property (assign) BOOL batch;
+@property (assign) NSUInteger batchErased;
 @end
 
 @implementation EraseViewController
@@ -33,13 +35,24 @@
     }
     [self.MSRDevice eraseTracks:tracks withCompletionBlock:^(MSRStatus status) {
         [self endAction:self.actionButton withStatus:status];
+        if(status == MagReadWriteOK) self.batchErased++;
+        if(self.batch){
+            [self actionButtonPressed:button];
+            self.statusLabel.stringValue = [NSString stringWithFormat:@"Erased %ld. Swipe next card..", self.batchErased];
+        }
     }];
 }
 
 - (void)batchErase
 {
-    
-    
+    self.batch = YES;
+    self.batchErased = 0;
+    [self actionButtonPressed:self.actionButton];
+}
+- (void)cancelAction:(NSButton *)button
+{
+    [super cancelAction:button];
+    self.batch = NO;
 }
 
 @end
