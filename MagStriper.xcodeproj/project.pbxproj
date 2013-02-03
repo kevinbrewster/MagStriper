@@ -107,7 +107,6 @@
 		6761EA3C16AE36DC0026BCFB = {
 			isa = PBXGroup;
 			children = (
-				67D4130F16AE388500EF8B05 /* IOKit.framework */,
 				6761EAC316AE37C20026BCFB /* Classes */,
 				6761EAEC16AE37C20026BCFB /* Other Sources */,
 				6761EAEF16AE37C20026BCFB /* Resources */,
@@ -127,6 +126,7 @@
 		6761EA4A16AE36DC0026BCFB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				67D4130F16AE388500EF8B05 /* IOKit.framework */,
 				6761EA4B16AE36DC0026BCFB /* Cocoa.framework */,
 				6761EA4D16AE36DC0026BCFB /* Other Frameworks */,
 			);

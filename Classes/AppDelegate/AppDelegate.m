@@ -40,7 +40,8 @@
         [self ORSSerialPortWasConnected:nil];
     } else{
         [self ORSSerialPortWasDisconnected:nil];
-    }    
+    }
+    
 }
 - (void)setView:(NSString*)name
 {
@@ -120,7 +121,7 @@
 }
 - (IBAction)batchWriteFromFile:(id)sender
 {
-    if(!self.MSRDevice) return;
+    //if(!self.MSRDevice) return;
     
     // Create and configure the panel.
     NSOpenPanel* panel = [NSOpenPanel openPanel];

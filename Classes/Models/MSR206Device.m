@@ -42,33 +42,6 @@
 @synthesize leadingZero = _leadingZero;
 
 
-/*
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    if([(__bridge NSString *)context isEqualToString:@"BPC"]){
-        NSLog(@"observed value for key path BPC");
-        if(_BPC[@"1"] && _BPC[@"2"] && _BPC[@"3"]){
-            //[self setBPC:_BPC];
-        }
-    }
-    if([(__bridge NSString *)context isEqualToString:@"leadingZero"]){
-        NSLog(@"observed value for key path leadingZero");
-        if(_leadingZero[@"1"]){
-            //[self setLeadingZero:_leadingZero];
-        }
-    }
-}
-
-+ (BOOL)automaticallyNotifiesObserversForKey:(NSString *)theKey
-{
-    //NSLog(@"automaticallyNotifiesObserversForKey %@", theKey);
-    return NO;
-}
-+ (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key{
-    return nil;
-}
-*/
-
 - (id)initWithPort:(ORSSerialPort *)port
 {
     if(self = [super init]){
@@ -150,7 +123,6 @@
     if(!_firmwareVersion){
         [self sendCommand:[GET_FIRMWARE_VERSION_COMMAND dataUsingEncoding:NSUTF8StringEncoding] withStopString:nil andStopBytes:@9 andCompletionBlock:^(NSData *data) {
             [self willChangeValueForKey:@"firmwareVersion"];
-            NSLog(@"firmware version = %@", data);
             _firmwareVersion = [[NSString stringWithUTF8String:data.bytes] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"\x1B"]];
             [self didChangeValueForKey:@"firmwareVersion"];
         }];
@@ -259,9 +231,7 @@
         leadingZero = @{@"1":track13LeadingZero, @"2":track2LeadingZero, @"3":track13LeadingZero};
         if(![leadingZero isEqualToDictionary:_leadingZero]){
             NSData *command = [NSData dataWithObjects:@[SET_LEADING_ZEROS_COMMAND, leadingZero[@"1"], leadingZero[@"2"]]];
-            NSLog(@"setLeadingZero command = %@", command);
             [self sendCommand:command withStopString:@"\x1B" andStopBytes:@1 andCompletionBlock:^(NSData *response) {
-                NSLog(@"set leadingZero response = %@", response);
                 const unsigned char *bytes = response.bytes;
                 [self willChangeValueForKey:@"leadingZero"];
                 if(bytes[response.length-1] == MagReadWriteOK){
@@ -283,8 +253,6 @@
 {
     NSData *command = [NSData dataWithObjects:@[ [format isEqualToString:@"ISO"] ? READ_ISO_COMMAND : READ_RAW_COMMAND ]];
     [self sendCommand:command withStopString:@"\x3F\x1C\x1B" andStopBytes:@1 andCompletionBlock:^(NSData *response){
-       NSLog(@"readTrackData response = %@", response);
-        
         const unsigned char *bytes = [response bytes];
         MSRStatus status = bytes[response.length-1];
         
@@ -309,7 +277,6 @@
                range = NSMakeRange(range.location+range.length+3, bytes[range.location+range.length+2]);
                 if(range.location != NSNotFound){
                     NSData *data = [response subdataWithRange:range];
-                    //NSLog(@"encoded read track data %@ = %@", key, data);
                     if(decode) data = [self decodedData:data forTrack:@(key.intValue)];
                     trackData[key] = data;
                     
@@ -366,17 +333,13 @@
 - (void)duplicateReadData:(NSDictionary *)trackData withCompletionBlock:(void (^)(MSRStatus status))block
 {
     // reverse the bytes in the encoded data read from cards
-    //NSLog(@"Duplicate: Data Read: %@", trackData);
-    
     NSMutableDictionary *encodedTrackData = [NSMutableDictionary dictionary];
     for(NSString *key in @[@"1",@"2",@"3"]){
         NSData *data = trackData[key];
         if(data){
-            //encodedTrackData[key] = [[data dataTrimmedOfStartingZeroBits] dataWithBytesReversed];
             encodedTrackData[key] = [[[data dataTrimmedOfStartingZeroBits] dataTrimmedOfZeros] dataWithBytesReversed];
         }
     }
-    NSLog(@"Duplicate: Data for Write: %@", encodedTrackData);
     [self writeTrackData:encodedTrackData withFormat:@"Encoded" andCompletionBlock:block];
 }
 
@@ -392,7 +355,6 @@
         NSMutableData *command = [[ERASE_COMMAND dataUsingEncoding:NSUTF8StringEncoding] mutableCopy];
         [command appendBytes:&selectByte length:1];
 
-        NSLog(@"send Erase command %@", command);
         [self sendCommand:command withStopString:@"\x1B" andStopBytes:@1 andCompletionBlock:^(NSData *response){
             const unsigned char *bytes = [response bytes];
             MSRStatus status = bytes[response.length-1];
@@ -410,9 +372,7 @@
     NSUInteger actualBPC;
     
     if(track.intValue == 1){
-        //actualBPC = (BPC.intValue == 6) ? 6 : 7;
         actualBPC = 7;
-        //if(BPC.intValue == 8) actualBPC = 6;
     } else{
         actualBPC = 5;
     }
@@ -420,10 +380,6 @@
     BOOL useParity = (BPC.intValue != 6);
     BOOL usePadding = (BPC.intValue != 8);
     
-    
-    //NSString *string = [NSString stringWithUTF8String:data.bytes];
-    //NSLog(@"string = %@", string);
-    //NSLog(@"Track %@ (BPC = %@): Encoding with BPC=%ld, parity=%d, padding=%d", track, BPC, actualBPC, useParity, usePadding);
     return [data encodedDataUsingBPC:actualBPC withParity:useParity andPadding:usePadding];
 }
 - (NSData *)decodedData:(NSData *)data forTrack:(NSNumber *)track
@@ -437,12 +393,9 @@
         actualBPC = 5;
     }
     
-    
     BOOL useParity = (BPC.intValue != 6);
     BOOL usePadding = (BPC.intValue != 8);
     
-    
-   // NSLog(@"decoding track %@ with BPC=%ld, parity=%d, padding=%d", track, actualBPC, useParity, usePadding);
     return [data decodedDataUsingBPC:actualBPC withParity:useParity andPadding:usePadding];
 }
 

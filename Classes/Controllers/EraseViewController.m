@@ -48,6 +48,7 @@
     self.batch = YES;
     self.batchErased = 0;
     [self actionButtonPressed:self.actionButton];
+    self.actionButton.title = @"Done";
 }
 - (void)cancelAction:(NSButton *)button
 {

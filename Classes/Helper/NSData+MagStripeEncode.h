@@ -30,7 +30,6 @@
 
 + (NSData *)dataWithObjects:(NSArray *)objects;
 + (NSData *)dataFromHexString:(NSString *)string;
-+ (NSData *)dataWithString:(NSString *)string usingBPC:(NSUInteger)BPC withParity:(BOOL)useParity andPadding:(BOOL)usePadding;
 - (NSData *)encodedDataUsingBPC:(NSUInteger)BPC withParity:(BOOL)useParity andPadding:(BOOL)usePadding;
 - (NSData *)decodedDataUsingBPC:(NSUInteger)BPC withParity:(BOOL)useParity andPadding:(BOOL)usePadding;
 - (NSData *)dataWithBytesReversed;

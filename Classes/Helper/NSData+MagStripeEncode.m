@@ -10,25 +10,6 @@
 
 @implementation NSData (MagStripeEncode)
 
-//dec:44
-//bin: 00101100
-
-
-+ (NSString *)bitsWithInt:(NSUInteger)num
-{
-    NSMutableString *string = [NSMutableString string];
-    
-    for(int i=7; i>=0; i--){
-        if(num >= pow(2,i)){
-            [string appendString:@"1"];
-            num -= pow(2,i);
-        } else{
-            [string appendString:@"0"];
-        }
-    }
-    return string;
-}
-
 
 
 + (NSData *)dataWithObjects:(NSArray *)objects
@@ -93,14 +74,6 @@
     return [NSString stringWithString:hexString];
 }
 
-
-
-+ (NSData *)dataWithString:(NSString *)string usingBPC:(NSUInteger)BPC withParity:(BOOL)useParity andPadding:(BOOL)usePadding
-{
-    NSData *data = [NSData dataWithBytes:string.UTF8String length:string.length];
-    return [data encodedDataUsingBPC:BPC withParity:useParity andPadding:usePadding];
-}
-
 - (NSData *)dataTrimmedOfStartingZeroBits
 {
     if(!self.length) return self;
@@ -139,19 +112,7 @@
 {
     if(!self.length) return self;
     
-    
     NSUInteger dataLength = self.length;
-    
-    /*
-    // remove any trailing 00's from data
-    NSData *zeros;
-    NSRange range = [self rangeOfData:[NSData dataWithBytes:"\x00" length:1] options:0 range:NSMakeRange(0, self.length)];
-    if(range.location != NSNotFound){
-        dataLength = range.location;
-        range.length = self.length - range.location;
-        zeros = [self subdataWithRange:range];
-        NSLog(@"zeros = %@", zeros);
-    }*/
     
     const unsigned char *bytes = self.bytes;
     unsigned char LRC = 0;
@@ -160,16 +121,10 @@
     
     for(int j=0; j<dataLength; j++){
         newBytes[j] = reverseByte(bytes[j]);
-        //NSLog(@"LRC = %@", [NSData bitsWithInt:LRC]);
         LRC = LRC ^ newBytes[j];
     }
-    //NSLog(@"LRC = %d -- %@", LRC, [NSData bitsWithInt:LRC]);
     LRC = ~LRC;
     LRC = LRC << 1;
-    //[newData appendBytes:&LRC length:1];
-    //NSLog(@"LRC = %d -- %@", LRC, [NSData bitsWithInt:LRC]);
-    
-    //if(zeros) [newData appendData:zeros];
     
     return [NSData dataWithData:newData];
 }
@@ -195,9 +150,7 @@
     for(int i=7; i>0; i--){
         if(bytes[0] < pow(2,i)) bitOffsetMain++;
     }
-    //NSLog(@"bitOffsetMain = %d", bitOffsetMain);
-    //NSLog(@"ascii_offset = %d", ascii_offset);
-    
+     
     for(int i=0; i<newLength; i++){
         int bytePos = i*chunkSize/8;
         int bitOffset = bitOffsetMain + (i*chunkSize % 8);
@@ -211,16 +164,12 @@
         }
         if(chunkSize < 8) byte = byte >> (8 - chunkSize);
         
-        
         byte = reverseByte(byte);
-        
-
-            if(useParity) byte = byte & ~(1 << BPC+(7-chunkSize));  // chunk = 8
+    
+        if(useParity) byte = byte & ~(1 << BPC+(7-chunkSize));  // chunk = 8
         
         if(chunkSize < 8) byte = byte >> (8-BPC);
-        
-        //NSLog(@"%d) bytePos=%d, bitOffset=%d,  value= %@ (%d)", i, bytePos, bitOffset, [NSData bitsWithInt:byte], byte);
-        
+      
         byte += ascii_offset;
         
         if(BPC == 5 && !useParity && usePadding && byte > 60){
@@ -233,20 +182,12 @@
     return [NSData dataWithData:newData];
 }
 
-
-
-
-
 - (NSData *)encodedDataUsingBPC:(NSUInteger)BPC withParity:(BOOL)useParity andPadding:(BOOL)usePadding
 {
-    // 07 track 1 = 7 BPC
-    // 05 track 2,3 = 5 BPC
-    
     NSUInteger padding = (usePadding) ? 8 - BPC : 0;
     
     const char *bytes = self.bytes;
     NSUInteger newLength = ((self.length*(BPC+padding))+BPC+padding+7) / 8;
-    //NSLog(@"newLength = %d", newLength);
     
     NSMutableData* data = [NSMutableData dataWithLength:newLength];
     unsigned char *newBytes = [data mutableBytes];
@@ -255,18 +196,12 @@
     
     int bitOffset = 0;
     int byteCount = 0;
-    
-    
 
     NSUInteger ascii_offset = (11-BPC)*8;
     ascii_offset=48;
     
-    
     if(BPC == 7) ascii_offset = 32;
     if(BPC == 5) ascii_offset = 48;
-    
-    
-    //NSLog(@"ascii_offset = %d", ascii_offset);
     
     for(int i=0; i<self.length; i++){
         unsigned char c = (bytes[i] < ascii_offset) ? bytes[i]%16 : bytes[i] - ascii_offset;
@@ -283,17 +218,11 @@
             LRC_bits[j] = LRC_bits[j] ^ (c & 1<<(7-j));
         }
         
-        
-        
         if(useParity){
             bool parity = (((c * 0x0101010101010101ULL) & 0x8040201008040201ULL) % 0x1FF) & 1;
             if(!parity) c = c | 1<<(8-BPC);
         }
-        
-        //NSString *string = [NSString stringWithUTF8String:&bytes[i]];
-        //NSLog(@"%d) %@ --- byteIndex = %d, bitIndex = %d", i, [NSData bitsWithInt:c], byteCount, bitOffset);
-        
-        
+         
         unsigned char prev = newBytes[byteCount];
         newBytes[byteCount] = prev | (c >> bitOffset);
         bitOffset += BPC+padding;
@@ -312,14 +241,12 @@
     // LRC
     unsigned char LRC = 0;
     for(int j=0; j<BPC; j++){
-        //NSLog(@"LR_bits[%d] = %@", j, [NSData bitsWithInt:LRC_bits[j]]);
         LRC = LRC | LRC_bits[j];
     }
     if(useParity){
         bool LRC_parity = (((LRC * 0x0101010101010101ULL) & 0x8040201008040201ULL) % 0x1FF) & 1;
         if(!LRC_parity) LRC = LRC | 1<<(8-BPC);
     }
-    
     
     if(bitOffset){
         unsigned char prev = newBytes[byteCount];
@@ -328,13 +255,9 @@
         byteCount++;
     }
     newBytes[byteCount] = LRC << bitOffset;
-    
-    //NSLog(@"LRC = %@", [NSData bitsWithInt:LRC]);
-    
-    
+   
     for(int j=0; j<newLength; j++){
         newBytes[j] = reverseByte(newBytes[j]);
-        // NSLog(@"newBytes[%d] = %@", j, [NSData bitsWithInt:newBytes[j]]);
     }
     
     return [NSData dataWithData:data];
@@ -349,11 +272,5 @@ unsigned char reverseByte(unsigned char b) {
     return b;
 }
 
-- (NSData *)dataWith8BitEncoding
-{
-    NSMutableData *data;
-    
-    return data;
-}
 
 @end

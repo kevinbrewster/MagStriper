@@ -74,11 +74,6 @@
     
     [self.MSRDevice readTrackData:@"Encoded" withCompletionBlock:^(MSRStatus status, NSDictionary *trackData) {
         if(status == MagReadWriteOK){
-            NSLog(@"Original Card Data = %@", self.trackData);
-            
-            NSLog(@"Duplicate Card Data = %@", trackData);
-            
-            
             if(![self.trackData isEqualToDictionary:trackData]){
                 status = MagVerifyError;
             }

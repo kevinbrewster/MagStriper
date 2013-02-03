@@ -22,20 +22,12 @@
     return [super initWithNibName:@"SetupViewController" bundle:nil];
 }
 
-- (void)awakeFromNib
-{
-    NSLog(@"awakefromniub");
-    AppDelegate *appDelegate = (AppDelegate *) [[NSApplication sharedApplication] delegate];
-
-    NSLog(@"%@", appDelegate.serialPortManager.availablePorts);
-}
 - (IBAction)resetDevice:(NSButton *)sender
 {
     AppDelegate *appDelegate = (AppDelegate *) [[NSApplication sharedApplication] delegate];
     [appDelegate.MSRDevice resetDevice];
 }
 - (IBAction)deviceSelected:(NSPopUpButton *)deviceSelect {
-    NSLog(@"DeviceSelected");
     AppDelegate *appDelegate = (AppDelegate *) [[NSApplication sharedApplication] delegate];
     
     ORSSerialPort *port = [appDelegate.serialPortManager.availablePorts objectAtIndex:deviceSelect.indexOfSelectedItem];

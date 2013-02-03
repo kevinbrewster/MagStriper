@@ -67,22 +67,6 @@
         self.complete = YES;
     }
 }
-- (void)serialPort:(ORSSerialPort *)serialPort didEncounterError:(NSError *)error
-{
-	//NSLog(@"Serial port %@ encountered an error: %@", serialPort, error);
-}
-- (void)serialPortWasOpened:(ORSSerialPort *)serialPort
-{
-   // NSLog(@"Serial port %@ was opened", serialPort);
-    
-}
-- (void)serialPortWasClosed:(ORSSerialPort *)serialPort
-{
-    //NSLog(@"Serial port %@ was closed", serialPort);
-}
-- (void)serialPortWasRemovedFromSystem:(ORSSerialPort *)serialPort
-{
-   // NSLog(@"Serial port %@ ewas removed from system", serialPort);
-}
+
 
 @end

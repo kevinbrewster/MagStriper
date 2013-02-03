@@ -36,7 +36,7 @@
         self.trackString = [self.writeQueue objectAtIndex:0];
         self.statusLabel.stringValue = [NSString stringWithFormat:@"Swipe card %ld / %ld", self.completedWrites+1, self.completedWrites+self.writeQueue.count];
     }
-    
+
     NSMutableDictionary *trackData = [NSMutableDictionary dictionary];
     for(NSString *key in @[@"1",@"2",@"3"]){
         NSString *string = self.trackString[key];
