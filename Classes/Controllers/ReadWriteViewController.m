@@ -35,7 +35,6 @@
     self.dataFormat = [defaults objectForKey:@"dataFormat"];
     self.textFormat = [defaults objectForKey:@"textFormat"];
     
-    
     for(NSString *key in @[@"BPI",@"BPC", @"leadingZero"]){
         [self.MSRDevice addObserver:self forKeyPath:key options:0 context:NULL];
     }

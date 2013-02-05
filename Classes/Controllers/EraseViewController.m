@@ -39,6 +39,7 @@
         if(self.batch){
             [self actionButtonPressed:button];
             self.statusLabel.stringValue = [NSString stringWithFormat:@"Erased %ld. Swipe next card..", self.batchErased];
+            self.actionButton.title = @"Done";
         }
     }];
 }

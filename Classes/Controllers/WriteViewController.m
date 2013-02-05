@@ -54,7 +54,6 @@
             if(data) trackData[key] = data;
         }
     }
-  
     [self.MSRDevice writeTrackData:[NSDictionary dictionaryWithDictionary:trackData] withFormat:self.dataFormat andCompletionBlock:^(MSRStatus status) {
         [self endAction:self.actionButton withStatus:status];
         
@@ -124,7 +123,7 @@
             if(trackString.count) [self.writeQueue addObject:trackString];
         }
         if(self.writeQueue.count){
-            self.dataFormat = @"ASCII";
+            self.textFormat = @"ASCII";
             [self actionButtonPressed:self.actionButton];
         } else{
             errorMessage = @"No track data found in file.";
