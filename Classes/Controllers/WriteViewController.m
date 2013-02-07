@@ -18,14 +18,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.actionButton.title = @"Write";
-    
     self.trackString = [NSMutableDictionary dictionary];
-    
-    //MSRDevice = 2;
-    
-    //[self writeFromURL:@"file://localhost/Users/kevinbrewster/Desktop/good%20codes.txt" withTrack:nil];
-    //[self writeFromURL:[NSURL URLWithString:@"file://localhost/Users/kevinbrewster/Desktop/good%20codes.txt"] withTrack:nil];
-    //[self writeFromURL:[NSURL URLWithString:@"file://localhost/Users/kevinbrewster/Desktop/GoodCodes.csv"] withTrack:nil];
 }
 
 - (void)doAction:(NSButton *)button
@@ -54,14 +47,30 @@
             if(data) trackData[key] = data;
         }
     }
+    
     [self.MSRDevice writeTrackData:[NSDictionary dictionaryWithDictionary:trackData] withFormat:self.dataFormat andCompletionBlock:^(MSRStatus status) {
         [self endAction:self.actionButton withStatus:status];
         
         if(self.writeQueue.count){
-            self.completedWrites++;
-            [self.writeQueue removeObjectAtIndex:0];
-            if(self.writeQueue.count){
-                [self actionButtonPressed:button];
+            if(status == MagReadWriteOK){
+                self.completedWrites++;
+                [self.writeQueue removeObjectAtIndex:0];
+                if(self.writeQueue.count){
+                    [self actionButtonPressed:button];
+                }
+            } else{
+                // If we are batch-writing cards and one was not successful, give the option to re-try that card or move on
+                NSAlert *alert = [NSAlert alertWithMessageText:[self.MSRDevice statusDescription:status forAction:@"write"]
+                                                 defaultButton:@"Re-Try Card"
+                                               alternateButton:@"Skip This Card"
+                                                   otherButton:nil
+                                     informativeTextWithFormat:@""];
+                
+                AppDelegate *appDelegate = (AppDelegate *) [[NSApplication sharedApplication] delegate];
+                [alert beginSheetModalForWindow:appDelegate.window
+                                  modalDelegate:self
+                                 didEndSelector:@selector(batchWriteAlertDidEnd:returnCode:contextInfo:)
+                                    contextInfo:nil];
             }
         }
     }];
@@ -84,6 +93,20 @@
     } else{
         self.writeQueue = nil;
         [super cancelAction:button];
+    }
+}
+- (void)batchWriteAlertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+{
+    if(returnCode == NSAlertFirstButtonReturn){
+        // skip card
+        self.completedWrites++;
+        [self.writeQueue removeObjectAtIndex:0];
+        if(self.writeQueue.count){
+            [self actionButtonPressed:self.actionButton];
+        }
+    } else{
+        // re-try card
+        [self actionButtonPressed:self.actionButton];
     }
 }
 - (void)cancelAlertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo

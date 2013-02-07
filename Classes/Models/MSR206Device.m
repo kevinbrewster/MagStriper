@@ -321,8 +321,7 @@
     [dataBlock appendBytes:"\x1B\x73" length:2];
     [dataBlock appendData:cardData];
     [dataBlock appendBytes:"\x3F\x1C" length:2];
-    
-    
+        
     [self sendCommand:dataBlock withStopString:@"\x1B" andStopBytes:@1 andCompletionBlock:^(NSData *response){
         const unsigned char *bytes = [response bytes];
         MSRStatus status = bytes[response.length-1];

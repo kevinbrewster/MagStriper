@@ -41,7 +41,6 @@
     } else{
         [self ORSSerialPortWasDisconnected:nil];
     }
-    
 }
 - (void)setView:(NSString*)name
 {
